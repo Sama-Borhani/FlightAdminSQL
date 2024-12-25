@@ -1,4 +1,4 @@
-```markdown
+
 # FlightAdminSQL
 
 FlightAdminSQL is an advanced SQL project aimed at managing an airline operations database. The project includes comprehensive schema design, ensuring data integrity, executing complex queries, and controlling transactions to highlight proficiency in robust database management solutions for airline operations.
@@ -13,6 +13,8 @@ FlightAdminSQL is an advanced SQL project aimed at managing an airline operation
 
 - **Transaction Control**: Utilizes SQL transaction controls to ensure that all data manipulations are processed reliably and any changes are committed or rolled back appropriately.
 
+
+```markdown
 ## Database Setup
 
 ### Enable Autocommit
