@@ -89,6 +89,3 @@ CREATE TABLE FEEDBACK
 );
 ```
 
-
-
-Do you also want me to prepare a **Markdown “Data Dictionary” version** like this (with neat tables for column types, PK/FK, constraints)?
