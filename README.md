@@ -1,89 +1,136 @@
 
-# FlightAdminSQL
+# ✈️ Flight Admin Database System
 
-FlightAdminSQL is an advanced SQL project aimed at managing an airline operations database. The project includes comprehensive schema design, ensuring data integrity, executing complex queries, and controlling transactions to highlight proficiency in robust database management solutions for airline operations.
+A relational database system that simulates an **Airline Reservation App**.  
+This project models the core operations of an airline system, including **bookings, flights, catering, payments, customer feedback, aircrafts, pilots, airports, and frequent flyer programs**.
 
-## Features
+The project demonstrates skills in **database design, normalization, SQL schema creation, data loading, and advanced SQL queries**.
 
-- **Schema Design**: Defines a clear and organized structure for storing airline operations data, including tables for airports, companies, customers, pilots, aircrafts, flights, crew, bookings, catering, payments, feedback, and frequent flyer programs.
+---
 
-- **Data Integrity**: Implements primary keys, unique constraints, and foreign keys to ensure data accuracy and consistency.
-
-- **Complex Queries**: Demonstrates the ability to handle advanced SQL queries for reporting and analytics, such as joining multiple tables and filtering records based on specific conditions.
-
-- **Transaction Control**: Utilizes SQL transaction controls to ensure that all data manipulations are processed reliably and any changes are committed or rolled back appropriately.
-
-
-```markdown
-## Database Setup
-
-### Enable Autocommit
-
-```sql
-SET AUTOCOMMIT ON;
+##  Repository Structure
 ```
 
-### Create Tables
+flight-admin-db/
+├─ README.md
+├─ schema/
+│  ├─ BDD2001.sql               # full database schema
+│  ├─ Project2.sql              # additional schema definitions
+│  ├─ Group3\_creationscript.sql # table creation script
+│  └─ Group3\_datascript.sql     # insert sample data
+├─ docs/
+│  ├─ Group3\_ERD.png            # entity-relationship diagram
+│  ├─ Group3\_datadictionary.md  # data dictionary
+│  └─ Group03\_ADVSQL-reports.md # advanced SQL queries & reports
+└─ data/
+└─ sample\_data.sql           # test/sample dataset
+
+````
+
+---
+
+##  Objectives
+
+- Design and implement a **normalized relational schema** for an airline reservation system.  
+- Provide **sample data** for flights, customers, airports, and pilots.  
+- Create **ERD diagrams** and **data dictionaries** for documentation.  
+- Write **advanced SQL queries** for real-world reports and analysis.  
+
+---
+
+##  Database Design
+
+### Main Entities
+- **Customers** – passengers and frequent flyers  
+- **Flights** – scheduled flight operations  
+- **Aircrafts** – aircraft details and seat capacity  
+- **Airports** – hubs and destinations  
+- **Bookings** – reservations linked to customers and flights  
+- **Payments** – transactions for bookings  
+- **Catering** – onboard services and providers  
+- **Feedback** – customer service and flight ratings  
+- **Pilots & Crew** – airline staff and assignments  
+- **Companies** – operating carriers  
+
+### ERD
+![ERD Diagram](docs/Group3_ERD.png)  
+*Entity-Relationship Diagram of the Flight Admin system.*
+
+---
+
+##  Documentation
+
+- **Data Dictionary** → describes schema attributes, datatypes, constraints, and validation rules.  
+- **Sample Data** → realistic inserts for flights, bookings, payments, and customers.  
+- **Advanced SQL Reports** → joins, nested subqueries, aggregations, set operations.
+
+---
+
+##  How to Run
+
+### 1. Create the schema
+```sql
+-- Run in your SQL client (Oracle, MySQL, or PostgreSQL depending on setup)
+@schema/BDD2001.sql
+@schema/Project2.sql
+````
+
+### 2. Load sample data
 
 ```sql
--- Example: Creating the 'AIRPORT' table
-CREATE TABLE AIRPORT
-(
-    AIRPORTID INT PRIMARY KEY,
-    AIRPORTNAME VARCHAR(35) NOT NULL,
-    CITY VARCHAR(35) NOT NULL,
-    COUNTRY VARCHAR(35) NOT NULL,
-    LATITUDE INT NOT NULL,
-    LONGITUDE INT NOT NULL
-);
+@schema/Group3_datascript.sql
 ```
 
-### Insert Data
+### 3. Execute advanced queries
 
 ```sql
--- Example: Inserting data into the 'AIRPORT' table
-INSERT INTO AIRPORT VALUES (201, 'Heathrow', 'London', 'United Kingdom', 51.4700, -0.4543);
+@docs/Group03_ADVSQL-reports.sql
 ```
 
-### Complex Queries
+---
 
-```sql
--- Example: Joining FLIGHTS, CUSTOMERS, and BOOKINGS to get detailed booking information
-SELECT 
-    F.FLIGHTID,
-    F.ARRIVALTIME,
-    F.DEPARTURETIME,
-    C.FIRSTNAME,
-    C.LASTNAME,
-    C.EMAIL,
-    B.BOOKINGDATE,
-    B.BOOKINGTIME,
-    B.SEATNUMBER,
-    B.BOOKINGSTATUS
-FROM 
-    FLIGHTS F
-JOIN 
-    BOOKINGS B ON F.FLIGHTID = B.FLIGHTID
-JOIN 
-    CUSTOMERS C ON B.CUSTOMERID = C.CUSTOMERID;
-```
+##  Example Reports
 
-### Schema Modifications
+Some of the advanced SQL queries included:
 
-```sql
--- Example: Modifying the 'COMPANIES' table to enforce email format
-ALTER TABLE COMPANIES
-DROP COLUMN EMAIL;
+* Find the **most recent and earliest bookings**.
+* Calculate **average, highest, and lowest booking payments**.
+* Count catering services by **catering type**.
+* Show flights or services with **negative feedback**.
+* List customers who **paid above average**.
+* Display **most experienced pilots** and average flight hours.
+* Find countries with **multiple airports**.
+* Identify customers **not enrolled in frequent flyer programs**.
 
-ALTER TABLE COMPANIES
-ADD EMAIL VARCHAR(255) NOT NULL
-CONSTRAINT email_format CHECK (EMAIL ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$');
-```
+---
 
-### Clean Up
+##  Tech Stack
 
-```sql
--- Dropping all tables
-DROP TABLE FREQFLYER, FEEDBACK, PAYMENTS, CATERING, BOOKINGS, CREW, FLIGHTS, AIRCRAFTS, PILOTS, CUSTOMERS, COMPANIES, AIRPORT, PORT;
-```
+* **SQL (DDL + DML)** → schema creation and data manipulation
+* **Oracle SQL Developer / MySQL Workbench** → database execution environment
+* **ERD Tools** → schema visualization
+* **Markdown & Docs** → documentation and reporting
+
+---
+
+##  Key Learnings
+
+* Database **normalization and schema design**
+* Use of **primary/foreign keys, check constraints, and validation rules**
+* Writing **complex SQL queries** with subqueries, joins, unions, and group by
+* Translating a **real-world domain (airline system)** into a working relational database
+
+---
+
+##  Contributors
+
+* Harleen Kaur
+* Sama Borhani
+* Urman Nagari
+
+---
+
+##  License
+
+This project is shared for educational purposes under the MIT License.
 
