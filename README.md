@@ -10,14 +10,14 @@ This repository demonstrates end-to-end **database design, schema creation, samp
 ```
 
 flight-admin-db/
-├─ README.md                  # Project overview (this file)
-├─ LICENSE                    # MIT License
-├─ .gitignore                 # Ignore temp and IDE files
-├─ docs/                      # Documentation
-│  ├─ ERD.png                 # Entity Relationship Diagram
-│  ├─ data\_dictionary.pdf     # Data dictionary
-│  └─ ADVSQL-reports.pdf      # Advanced SQL reports
-└─ schema/                    # Database schema & scripts
+├─ README.md                  
+├─ LICENSE                    
+├─ .gitignore                 
+├─ docs/                      
+│  ├─ ERD.png                 
+│  ├─ data\_dictionary.pdf     
+│  └─ ADVSQL-reports.pdf      
+└─ schema/                    
 ├─ creationscript\_sample.md
 ├─ datascript\_sample.md
 ├─ Flight\_Admin\_1.sql
