@@ -122,6 +122,5 @@ Some of the included queries produce:
 
 This project is licensed under the terms of the [MIT License](LICENSE).
 
-```
 
 
