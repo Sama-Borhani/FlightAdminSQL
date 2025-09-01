@@ -1,29 +1,27 @@
-
 # ✈️ Flight Admin Database System
 
-A relational database system that simulates an **Airline Reservation App**.  
-This project models the core operations of an airline system, including **bookings, flights, catering, payments, customer feedback, aircrafts, pilots, airports, and frequent flyer programs**.
-
-The project demonstrates skills in **database design, normalization, SQL schema creation, data loading, and advanced SQL queries**.
+A relational database project simulating an **Airline Reservation App**, designed to handle bookings, payments, catering services, and customer feedback.  
+This repository demonstrates end-to-end **database design, schema creation, sample data insertion, ERD modeling, and SQL reporting**.
 
 ---
 
 ##  Repository Structure
+
 ```
 
 flight-admin-db/
-├─ README.md
-├─ schema/
-│  ├─ BDD2001.sql               # full database schema
-│  ├─ Project2.sql              # additional schema definitions
-│  ├─ Group3\_creationscript.sql # table creation script
-│  └─ Group3\_datascript.sql     # insert sample data
-├─ docs/
-│  ├─ Group3\_ERD.png            # entity-relationship diagram
-│  ├─ Group3\_datadictionary.md  # data dictionary
-│  └─ Group03\_ADVSQL-reports.md # advanced SQL queries & reports
-└─ data/
-└─ sample\_data.sql           # test/sample dataset
+├─ README.md                  # Project overview (this file)
+├─ LICENSE                    # MIT License
+├─ .gitignore                 # Ignore temp and IDE files
+├─ docs/                      # Documentation
+│  ├─ ERD.png                 # Entity Relationship Diagram
+│  ├─ data\_dictionary.pdf     # Data dictionary
+│  └─ ADVSQL-reports.pdf      # Advanced SQL reports
+└─ schema/                    # Database schema & scripts
+├─ creationscript\_sample.md
+├─ datascript\_sample.md
+├─ Flight\_Admin\_1.sql
+└─ Flight\_Admin\_2.sql
 
 ````
 
@@ -31,106 +29,100 @@ flight-admin-db/
 
 ##  Objectives
 
-- Design and implement a **normalized relational schema** for an airline reservation system.  
-- Provide **sample data** for flights, customers, airports, and pilots.  
-- Create **ERD diagrams** and **data dictionaries** for documentation.  
-- Write **advanced SQL queries** for real-world reports and analysis.  
+- Design a normalized relational schema for an airline system.  
+- Implement **core entities**: customers, flights, bookings, catering, payments, and feedback.  
+- Populate the schema with **sample data** for demonstration.  
+- Document the schema using an **ERD** and **data dictionary**.  
+- Run **advanced SQL queries** for reporting and insights.  
 
 ---
 
 ##  Database Design
 
-### Main Entities
-- **Customers** – passengers and frequent flyers  
-- **Flights** – scheduled flight operations  
-- **Aircrafts** – aircraft details and seat capacity  
-- **Airports** – hubs and destinations  
-- **Bookings** – reservations linked to customers and flights  
-- **Payments** – transactions for bookings  
-- **Catering** – onboard services and providers  
-- **Feedback** – customer service and flight ratings  
-- **Pilots & Crew** – airline staff and assignments  
-- **Companies** – operating carriers  
+### Key Entities
+- **BOOKINGS** → reservations linked to flights and customers.  
+- **CATERING** → meal, beverage, and snack services per flight.  
+- **PAYMENTS** → transaction records tied to bookings.  
+- **FEEDBACK** → customer ratings and comments.  
 
 ### ERD
-![ERD Diagram](docs/Group3_ERD.png)  
-*Entity-Relationship Diagram of the Flight Admin system.*
+![ERD Diagram](docs/ERD.png)  
+*Entity-Relationship Diagram of the Flight Admin Database.*
 
 ---
 
 ##  Documentation
 
-- **Data Dictionary** → describes schema attributes, datatypes, constraints, and validation rules.  
-- **Sample Data** → realistic inserts for flights, bookings, payments, and customers.  
-- **Advanced SQL Reports** → joins, nested subqueries, aggregations, set operations.
+- [Data Dictionary (PDF)](docs/data_dictionary.pdf)  
+  Defines all attributes, datatypes, and constraints.  
+- [Advanced SQL Reports (PDF)](docs/ADVSQL-reports.pdf)  
+  Includes analytical queries such as highest payments, flight feedback summaries, and catering service breakdowns.  
 
 ---
 
 ##  How to Run
 
 ### 1. Create the schema
+Run the SQL scripts in your database environment (Oracle, MySQL, or PostgreSQL with minor adjustments):
+
 ```sql
--- Run in your SQL client (Oracle, MySQL, or PostgreSQL depending on setup)
-@schema/BDD2001.sql
-@schema/Project2.sql
+@schema/Flight_Admin_1.sql
+@schema/Flight_Admin_2.sql
 ````
 
-### 2. Load sample data
+### 2. Insert sample data
+
+Use the data scripts (Markdown docs show examples):
 
 ```sql
-@schema/Group3_datascript.sql
+@schema/datascript_sample.sql   -- if you export to .sql
 ```
 
-### 3. Execute advanced queries
+### 3. Run reports
+
+Use queries from the advanced SQL reports file:
 
 ```sql
-@docs/Group03_ADVSQL-reports.sql
+@docs/ADVSQL-reports.sql
 ```
 
 ---
 
 ##  Example Reports
 
-Some of the advanced SQL queries included:
+Some of the included queries produce:
 
-* Find the **most recent and earliest bookings**.
-* Calculate **average, highest, and lowest booking payments**.
-* Count catering services by **catering type**.
-* Show flights or services with **negative feedback**.
-* List customers who **paid above average**.
-* Display **most experienced pilots** and average flight hours.
-* Find countries with **multiple airports**.
-* Identify customers **not enrolled in frequent flyer programs**.
+* Bookings with **highest, lowest, and average payments**.
+* Flights with **negative vs. positive feedback**.
+* Top catering services by **type and provider**.
+* Customers **without frequent flyer programs**.
+* Pilots ranked by **experience level**.
 
 ---
 
 ##  Tech Stack
 
-* **SQL (DDL + DML)** → schema creation and data manipulation
-* **Oracle SQL Developer / MySQL Workbench** → database execution environment
-* **ERD Tools** → schema visualization
-* **Markdown & Docs** → documentation and reporting
+* **SQL (DDL & DML)** → schema creation and data manipulation.
+* **ERD Modeling Tools** → for database visualization.
+* **Oracle / MySQL** → tested in SQL Developer; portable with adjustments.
+* **Markdown & PDF Docs** → documentation and reporting.
 
 ---
 
 ##  Key Learnings
 
-* Database **normalization and schema design**
-* Use of **primary/foreign keys, check constraints, and validation rules**
-* Writing **complex SQL queries** with subqueries, joins, unions, and group by
-* Translating a **real-world domain (airline system)** into a working relational database
-
----
-
-##  Contributors
-
-* Harleen Kaur
-* Sama Borhani
-* Urman Nagari
+* Database normalization and schema design.
+* Proper use of **primary keys, foreign keys, and check constraints**.
+* Writing **complex SQL queries** (joins, subqueries, aggregates, constraints).
+* Translating a **real-world business domain** into a structured relational model.
 
 ---
 
 ##  License
 
-This project is shared for educational purposes under the MIT License.
+This project is licensed under the terms of the [MIT License](LICENSE).
+
+```
+
+---
 
